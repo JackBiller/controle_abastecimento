@@ -1,0 +1,92 @@
+10
+
+dir
+63
+file:///usr/local/svn/repos/zsuper.com.br/trunk/PagSeguroLibrary
+file:///usr/local/svn/repos/zsuper.com.br/trunk
+
+
+
+2012-01-19T00:33:46.983704Z
+34
+aller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8d418349-93bd-4bef-a7c4-df734d6e6b8c
+
+helper
+dir
+
+service
+dir
+
+utils
+dir
+
+log
+dir
+
+config
+dir
+
+loader
+dir
+
+PagSeguroLibrary.php
+file
+
+
+
+
+2011-12-01T15:02:34.000000Z
+46bfd690fe0da6d059e7969d29f1b0d3
+2012-01-19T00:33:46.983704Z
+34
+aller
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1834
+
+domain
+dir
+
+resources
+dir
+
+parser
+dir
+
+exception
+dir
+

@@ -1,0 +1,114 @@
+
+	    <div class="well conteudo"  id="formSaida">
+		<form id="formSaida" method="post" class="form">      
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Formulario de Cadastro de Saída de Diesel
+					</h2>
+					<div class="text-left">
+						<a href="#!saida" class="btn" title="Voltar">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</a>
+					</div>
+					
+				</div>
+				<div class="form-group row"><br>
+					<div class="row">
+						<div class="col-md-6">
+							<div id="selectBomba"></div>
+						</div>
+						<div class="col-md-3">
+							<label class="label-float">Volume Atual:</label>&nbsp;&nbsp;
+							<input type="text" id="volume_atual" class="form-control" disabled>
+						</div>
+						<div class="col-md-3">
+							<label class="label-float">Volume Total:</label>&nbsp;&nbsp;
+							<input type="text" id="volume_total" class="form-control" disabled>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-6">
+							<label class="label-float">Tipo de Saída:</label>
+							<select class="form-control" id="selectTipoSaida" onchange="verificaVisibilidade()">
+								<option value="caminhao">Caminhão</option>
+								<option value="terceiros">Terceiros</option>
+							</select>
+						</div>
+						<div class="col-md-6" id="tipoCaminhao">
+							<label class="label-float">Caminhão:</label>
+							<input style="text-transform: uppercase;" class="form-control" list="caminhao" id="caminhao_id">
+							<!-- <div id="listaCaminhao"></div> -->
+						</div>
+						<div class="col-md-6"  id="tipoTerceiro">
+							<div id="selectTerceiros"></div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-4">
+							<label class="label-float">Data de Entrada:</label>
+							<input type="date" onchange="valorUnitario(this)" onkeyup="valorUnitario(this)" id="data_entrada" class="form-control" required>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-4">
+							<label class="label-float">Qtd. em Litros:</label>
+							<input type="text" id="qtd_litros" onkeypress="ultimoValor();" onkeyup="calcTotal();verificarEntrada()" rel=decimalGeral class="form-control" required>
+						</div>
+						<div class="col-md-4">
+							<label class="label-float">Valor Únitario:</label>
+							<input type="text" id="vlr_unit" onkeyup="calcTotal()" rel=dinheiro class="form-control" required>
+						</div>
+						<div class="col-md-4">
+							<label class="label-float">Total:</label>
+							<input type="text" id="total" rel=dinheiro class="form-control" disabled>
+						</div>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<div class="form-item">
+							<a href="#!saida" class="btn btn-info" title="Voltar">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+								&nbsp;Voltar
+							</a>
+							&nbsp;
+							<button type="submit" class="btn btn-success">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+								&nbsp;Enviar
+							</button>
+							&nbsp;
+							<button type="reset" class="btn btn-danger">
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+								&nbsp;Limpar
+							</button>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+<script type="text/javascript">
+	var saida = false;
+	verificaVisibilidade();
+
+	function verificaVisibilidade(){
+		var valor = $("#selectTipoSaida").val();
+		if (valor == "caminhao") {
+			document.getElementById("tipoTerceiro").style.display = "none";
+			document.getElementById("tipoCaminhao").style.display = "block";
+		} else {
+			document.getElementById("tipoCaminhao").style.display = "none";
+			document.getElementById("tipoTerceiro").style.display = "block";
+		}
+	}
+</script>
+<style type="text/css">
+	p{
+		display: block;
+	}
+</style>
+
+<script type="text/javascript" src="app/js/ajax/ajax_saida.js"></script>

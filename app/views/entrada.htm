@@ -1,0 +1,56 @@
+
+	    <div class="well conteudo"  id="formEntrada">
+		<form id="formEntrada" method="post" class="form">      
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Entrada de Diesel
+						<div class="text-right">
+							<a href="#!cadastro_entrada" class="btn btn-success">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+								&nbsp;Registrar Entrada de Diesel
+							</a>
+						</div>
+					</h2>
+				</div>
+				<div class="form-group row">
+					<br><br>
+					<div class="row">
+						<div class="col-md-3">
+							<label class="label-float">Mês:</label>
+							<select class="form-control" onchange="definiMes()" id="selectMes">
+								<option value="1">Jan</option>
+								<option value="2">Fev</option>
+								<option value="3">Mar</option>
+								<option value="4">Abr</option>
+								<option value="5">Mai</option>
+								<option value="6">Jun</option>
+								<option value="7">Jul</option>
+								<option value="8">Ago</option>
+								<option value="9">Set</option>
+								<option value="10">Out</option>
+								<option value="11">Nov</option>
+								<option value="12">Dez</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<div id="selectAnoDinamico"></div>
+						</div>
+					</div>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md-12">
+							<div id="conteudoEntrada">
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>      
+		</form>
+		</div>
+<script type="text/javascript">
+	var entrada = true;
+</script>
+
+<script type="text/javascript" src="app/js/ajax/ajax_entrada.js"></script>

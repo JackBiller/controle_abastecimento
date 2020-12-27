@@ -1,0 +1,75 @@
+
+	    <div class="well conteudo"  id="formClienteCiaEnergia">
+		<form id="formClienteCiaEnergia" method="post" class="form">      
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Formulario de Cadastro de Caminhão
+					</h2>
+					<div class="text-left">
+						<a href="#!caminhoes" class="btn" title="Voltar">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</a>
+					</div>
+					
+				</div>
+				<div class="form-group row">
+					<div class="row">
+						<h3 class="text-center">Dados do Caminhão</h3>
+						<div class="col-md-3">
+							<label class="label-float">Placa:</label>
+							<input type="text" id="placa" style="text-transform: uppercase;" rel=placa class="form-control" required>
+						</div>
+						<div class="col-md-3">
+							<div id="selectCor"></div>
+						</div>
+						<div class="col-md-3">
+							<div id="selectProprietario"></div>
+						</div>
+						<div class="col-md-3">
+							<div id="selectMarca"></div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-3">
+							<h4>&nbsp;Vincular Para Calcular Média</h4>
+						</div>
+						<div class="col-md-2">
+						<input type="checkbox" class="form-control"  id="vinculo" ng-model="vinculo">
+						</div>
+						<div ng-if="vinculo">
+							<input type="hidden" id="vin_media" value="sim">
+						</div>
+						<div ng-if="!vinculo">
+							<input type="hidden" id="vin_media" value="nao">
+						</div>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<div class="form-item">
+							<a href="#!caminhoes" class="btn btn-info" title="Voltar">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+								&nbsp;Voltar
+							</a>
+							&nbsp;
+							<button type="submit" class="btn btn-success">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+								&nbsp;Enviar
+							</button>
+							&nbsp;
+							<button type="reset" class="btn btn-danger">
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+								&nbsp;Limpar
+							</button>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+<script type="text/javascript">
+	var caminhao = false;
+</script>
+
+<script type="text/javascript" src="app/js/ajax/ajax_caminhao.js"></script>

@@ -1,0 +1,33 @@
+
+	    <div class="well conteudo"  id="formClienteCiaEnergia">
+		<form id="formClienteCiaEnergia" method="post" class="form">      
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Caminhões
+						<div class="text-right">
+							<a href="#!cadastro_caminhao" class="btn btn-success">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+								&nbsp;Adicionar Caminhão
+							</a>
+						</div>
+					</h2>
+				</div>
+				<div class="form-group row">
+					<br><br>
+					<div class="col-md-3">
+					<input type="text" onkeyup="filtraPlaca(this)" style="text-transform: uppercase;" rel=placa class="form-control" placeholder="Pesquisar" required>
+					
+					</div><br><br><br>
+					<div id="conteudoCaminhoes">
+					
+					</div>
+				</div>
+			</fieldset>      
+		</form>
+		</div>
+<script type="text/javascript">
+	var caminhao = true;
+</script>
+
+<script type="text/javascript" src="app/js/ajax/ajax_caminhao.js"></script>

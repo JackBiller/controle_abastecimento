@@ -1,0 +1,231 @@
+
+	    <div class="well conteudo"  id="formClienteUnidCons">
+		<form id="formClienteUnidCons" method="post" class="form">
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Contas da Unidade Consumidora
+					</h2>
+					<div class="text-right">
+						<button class="btn btn-info" onclick="carregaContas();">
+							<i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;
+							Atualrizar Contas
+						</button>
+					</div>
+					<div class="text-left">
+						<a href="#!cliente_unid_cons" onclick="n_editar()" class="btn" title="Voltar">
+							<i class="fa fa-arrow-left" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="row">
+						<h3 class="text-center">Contas Cadastradas</h3>
+						<div class="col-md-12">
+							<input class="hidden" type="checkbox" id="carregaConta" ng-model="carregarContas">
+							<div id="linhasContasEdit">
+								<!-- Lista com todas as contas dos ultimos 5 anos somando um total de 60 -->
+							</div>
+						</div>
+					</div>
+					<br>
+					<asd style="color: red;">*</asd><b>Obs:</b>&nbsp;Se suas conta não carregarem automaticamente, favor clicar no botão atualizar contas para conferir suas contas. Lembrando o computador tem limitações de maquina para maquina atualiza conta é uma operação que envonvel requisição com o banco de dados portando pode leva um tempo para carregar todas, peço que tenha paciencia.<br>Obrigado por usar nossos serviço, volte sempre!
+					<hr>
+					<div id="linhasContas">
+						<!-- Lista com todas as contas dos ultimos 5 anos somando um total de 60 -->
+					</div>
+					<br>
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<div class="form-item">
+							<a href="#!cliente_unid_cons" onclick="n_editar()" class="btn btn-info" title="Voltar">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+								&nbsp;Voltar
+							</a>
+						</div>
+					</div>
+				</div>
+			</fieldset>      
+		</form>
+	</div>
+<script type="text/javascript">
+	var d = new Date();
+	var mes = d.getMonth() + 1;
+	var ano = d.getFullYear();
+	var cont = 0;
+	var mesStr = '';
+	var strTr = '';	
+
+	strTr += "<div class='row'>";
+	strTr += "	<h3 class='text-center'>Cadastro de Contas</h3>";
+	strTr += "	<div class='col-md-12' ng-if ='!carregarContas'>";
+	strTr += "		<br><h4>Favor click no botão ";
+	strTr += 		"<button class=\"btn btn-info\" onclick=\"carregaContas();\">";
+	strTr += 			"<i class=\"fa fa-refresh\" aria-hidden=\"true\"></i>&nbsp;&nbsp;";
+	strTr += 			"Atualrizar Contas";
+	strTr += "		</button> para ativar o cadastro de contas</h4>";
+	strTr += "	</div>";
+	strTr += "	<div class='col-md-12' ng-show ='carregarContas'>";
+
+	for (var j = 60 - 1; j >= 0; j--) {
+		strTr += "<input class='hidden' type='checkbox' id='linha"+mes+"/"+ano+"' ng-model='linha"+mes+ano+"'>";
+		mes --;
+		if (mes == 0) {mes = 12; ano--;}
+	}
+	strTr += "<table class='table'>";
+	strTr += "	<tr bgcolor='white' align='center'>";
+	strTr += "		<td align='center'>N°						</td>";
+	strTr += "		<td align='center'>Mês/Ano					</td>";
+	strTr += "		<td align='center'>Valor Distribuição		</td>";
+	strTr += "		<td align='center'>Valor Transmissão		</td>";
+	strTr += "		<td align='center'>Valor Encargos			</td>";
+	strTr += "		<td align='center'>Percentual de Aliquota	</td>";
+	strTr += "		<td align='center'>Valor Retituição			</td>";
+	strTr += "		<td align='center'>Salvar					</td>";
+	strTr += "	</tr>";
+
+	d = new Date();
+	mes = d.getMonth() + 1;
+	ano = d.getFullYear();
+
+	for (var i = 60 - 1; i >= 0; i--) {
+		cont++;
+		     if (mes ==  1) mesStr = "Jan";
+		else if (mes ==  2) mesStr = "Fev";
+		else if (mes ==  3) mesStr = "Mar";
+		else if (mes ==  4) mesStr = "Abr";
+		else if (mes ==  5) mesStr = "Mai";
+		else if (mes ==  6) mesStr = "Jun";
+		else if (mes ==  7) mesStr = "Jul";
+		else if (mes ==  8) mesStr = "Ago";
+		else if (mes ==  9) mesStr = "Set";
+		else if (mes == 10) mesStr = "Out";
+		else if (mes == 11) mesStr = "Nov";
+		else if (mes == 12) mesStr = "Dez";
+
+		strTr += "	<tr ng-show='!linha"+mes+ano+"'>";
+		strTr += "		<td align='center'>";
+
+		strTr += "			&nbsp;&nbsp;"+cont;
+		strTr += "		</td>";
+		strTr += "		<td align='center'>";
+		strTr += "			"+mesStr+"/"+ano;
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<input class='form_control' rel='dinheiro' type='text' onkeyup='calculaSubtotal(\""+mes+"/"+ano+"\");' id='vlr_distribuicao"+mes+"/"+ano+"'>";
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<input class='form_control' rel='dinheiro' type='text' onkeyup='calculaSubtotal(\""+mes+"/"+ano+"\");' id='vlr_transmissao"+mes+"/"+ano+"'>";
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<input class='form_control' rel='dinheiro' type='text' onkeyup='calculaSubtotal(\""+mes+"/"+ano+"\");' id='vlr_encargos"+mes+"/"+ano+"'>";
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<input class='form_control' rel='porcento' type='text' onkeyup='calculaSubtotal(\""+mes+"/"+ano+"\");' id='perc_aliq_icms"+mes+"/"+ano+"'>";
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<input class='form_control' rel='dinheiro' type='text' onkeyup='calculaSubtotal(\""+mes+"/"+ano+"\");' id='vlr_subtotal"+mes+"/"+ano+"' disabled>";
+		strTr += "		</td>";
+		strTr += "		<td>";
+		strTr += "			<button onclick='gravar_conta(\""+mes+"/"+ano+"\" , \"I\");' class='btn btn-default' id='botao"+mes+"/"+ano+"' style='color: green;' title='gravar' disabled>";
+		strTr += "				<i class='fa fa-floppy-o' aria-hidden='true'></i>";
+		strTr += "			</button>";
+		strTr += "		</td>";
+		strTr += "	</tr>";
+
+		mes --;
+		if (mes == 0) {mes = 12; ano--;}
+	}
+	strTr += "</table>";
+	strTr += "</div>";
+	strTr += "</div>";
+	document.getElementById('linhasContas').innerHTML = strTr;
+	valorInpc();
+</script>
+<style type="text/css">
+	.form_control {
+		box-sizing: border-box;
+		border-radius: 2px;
+		border: 0;
+		color: @gray;
+		font-size: auto;
+		display: block;
+		height: auto;
+		padding-left: 4px;
+		width: 100%;
+		background-color: #aaa;
+		padding: black;
+		margin-top: 5px;
+		margin-bottom: 5px;
+
+		&:valid {
+			border-color: @green;
+		}
+
+		&:focus  {
+			border-color: @blue;
+		}
+	}
+</style>
+<!-- Modal Editar Conta-->
+<div id="modal_edit_conta" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Editar Conta</h3>
+			</div>
+			<div class="modal-body">
+				<div class="text-right">
+					<h4><span id="mesAnoT"></span></h4>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" id="vlr_distribuicao" rel='dinheiro' class="form-control" onkeyup='calculaSubtotal("1");' required>
+						<label class="label-float" for="name">Valor Distribuição:</label>
+						<input type="hidden" id="modal_id">
+						<input type="hidden" id="inpc_modal">
+					</div>
+					<div class="col-md-6">
+						<input type="text" id="vlr_transmissao" rel='dinheiro' class="form-control" onkeyup='calculaSubtotal("1");' required>
+						<label class="label-float" for="name">Valor Transmissão:</label>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" id="vlr_encargos" rel='dinheiro' class="form-control" onkeyup='calculaSubtotal("1");' required>
+						<label class="label-float" for="name">Valor Encargos:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" id="perc_aliq_icms" rel='porcento' class="form-control" onkeyup='calculaSubtotal("1");' required>
+						<label class="label-float" for="name">Percentual de Aliquota:</label>
+					</div>
+				</div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" class="form-control" disabled>
+						<label class="label-float" for="name">
+							Valor Retituição:&nbsp;&nbsp;
+							<span id="vlr_restituicao"></span>
+						</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" class="form-control" disabled>
+						<label class="label-float" for="name">
+							Valor Subtotal:&nbsp;&nbsp;
+							<span id="vlr_subtotal"></span>
+						</label>
+					</div>
+				</div>
+				<br><br>
+				<button type="button" onclick="gravar_conta('1' , 'U')" class="btn btn-success btn-block">
+					Alterar Conta
+				</button>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" id="fechar_modal" class="btn btn-default" onclick="carregaContas();" data-dismiss="modal">Fechar</button>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="app/js/ajax/ajax_interagir_cliente_unid_cons.js"></script>

@@ -1,0 +1,129 @@
+<style type="text/css">
+  .panel {
+    border: solid #381640;
+    border-radius:0;
+    transition: box-shadow 0.5s;
+    min-height: 27em;
+    max-height: 27em;
+    height: 27em;
+}
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+.panel-footer .btn:hover {
+    border: 1px solid #381640;
+    background-color: #fff !important;
+    color: #381640;
+}
+.panel-heading {
+    color: #fff !important;
+    background-color: #381640 !important;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.panel-footer {
+    background-color: #fff !important;
+}
+.panel-footer h3 {
+    font-size: 32px;
+}
+.panel-footer h4 {
+    color: #000;
+    font-size: 20px;
+}
+.panel-footer .btn {
+    background-color: #381640;
+    color: #fff;
+}
+.footer{
+    min-height: 5em;
+    max-height: 5em;
+}
+.corpo{
+    min-height: 15em;
+    max-height: 15em;
+    height: 15em;
+}
+.cabecario{
+    min-height: 5em;
+    max-height: 5em;
+    height: 5em;
+}
+</style>
+<!-- Documentos -->
+    <div class="well conteudo"  id="formClienteUnidCons">
+    <form id="formClienteUnidCons" method="post" class="form">
+    <div class="well conteudo">
+    <div class="row">
+      <div class="text-center">
+        <h2 class="text-center">Documentos</h2>
+      </div>
+      <br><br>
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading cabecario">
+              <h4>Permição de Proprietário</h4>
+            </div>
+            <div class="panel-footer corpo">
+              <h4>Se a unidade consumidora pertence a terceiros, é necessario gerar um documento comprovando a permição do proprietário<br></h4>
+              <div id="obs_permicao_proprietario"></div>
+            </div>
+            <div class="panel-footer footer">
+              <div id="permicao_proprietario"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading cabecario">
+              <h4>Petição das contas de luz</h4>
+            </div>
+            <div class="panel-footer corpo">
+              <h4>Você não é obrigado a manter todas as contas até os últimos cinco anos, para isso você pode requisitar as contas de luz na compania de energia com esse documento<br></h4>
+            </div>
+            <div class="panel-footer footer">
+                <div id="peticao_contas"></div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+         <div class="col-sm-6">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading cabecario">
+                <h4>Declaração de hipossuficiência</h4>
+              </div>
+              <div class="panel-footer corpo">
+                <h4>Em casos de pequenas causas não à nessecidade de advogado se você declarar hipossuficiência de pessoa física<br></h4>
+            </div>
+            <div class="panel-footer footer">
+                <div id="declaracao_hiposuficiencia"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading cabecario">
+                <h4>Requerimento da restituição</h4>
+              </div>
+              <div class="panel-footer corpo">
+                <h4>O documento para exigir a sua restituição do imposto cobrado indevidamente <br><br></h4>
+                <div id="obs_cadastro_contas"></div>
+              </div>
+              <div class="panel-footer footer">
+                <div id="restituicao"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    </div>
+
+<script type="text/javascript" src='app/js/ajax/documento.js'></script>

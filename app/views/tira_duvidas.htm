@@ -1,0 +1,264 @@
+
+		<div align="center">
+			<h2>
+				Tira Dúvidas {{questao1}}
+			</h2>
+		</div>
+		<br>
+
+		<!-- pergunta 1 -->
+		<div ng-model="questao" ng-init="questao = 0" class="pergunta">
+		<span class='info' ng-show="questao != 0 && questao != 1" ng-click="questao = 1">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Porque você tem direito a restituição do ICMS pago indevidamente?
+		</span>
+		<span class='ativar' ng-show="questao == 1" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Porque você tem direito a restituição do ICMS pago indevidamente?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 1">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Porque você tem direito a restituição do ICMS pago indevidamente?
+		</span>
+		<span ng-show="questao == 1" class="resposta"><br><br>
+			O ICMS incide nas faturas de energia elétrica e repassado para os Estados, mas ele tem sido indevidamento cobrado sobre tarifas de uso do sistema elétrico, indevidamente, e em alguns casos, tem incidido sobre outros encargos.
+			<br><br>
+			O transporte de energia é dividido em dois segmentos, a transmissão e a distribuição.<br><br>
+			A transmissão é a entrega da energia da geradora para a distribuidora, ou seja, é o transporte da energia entre a usina geradora a companhia de energia que distribui esta energia.
+			<br><br>
+			A entrega da energia recebida pela companhia e o consumidor final - você, é a distribuição.<br><br>
+			Em muitos estados têm incidido o ICMS sobre esta transmissão e distribuição, que deverá ser restituído.<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 2 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 2" ng-click="questao = 2">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode julgar o processo de restituição de ICMS? Onde entrar com a ação de restituição?
+		</span>
+		<span class='ativar'    ng-show="questao == 2" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode julgar o processo de restituição de ICMS? Onde entrar com a ação de restituição?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 2">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode julgar o processo de restituição de ICMS? Onde entrar com a ação de restituição?
+		</span>
+		<span ng-show="questao == 2" class="resposta"><br><br>
+			Competência para processamento da ação: Justiça Estadual, tanto nos Juizados Especiais da Fazenda Pública (Lei n. 12.153/2009), quanto nas Varas Cíveis Comuns ou nas Varas da Fazenda Pública (quando houver).
+			<br><br>
+			Ã‰ necessário observar que, se o valor da restituição for maior que o permitido para os Juizados Especiais - ou de Pequenas Causas, ou seja, maior que o valor de 60 (sessenta) salários mínimos, será necessário entrar em Juizados comuns. Se isto for necessário, o sistema lhe dará informações e orientações.<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 3 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 3" ng-click="questao = 3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode requerer a restituição de ICMS?
+		</span>
+		<span class='ativar'    ng-show="questao == 3" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode requerer a restituição de ICMS?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 3">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quem pode requerer a restituição de ICMS?
+		</span>
+		<span ng-show="questao == 3" class="resposta"><br><br>
+			Todas as pessoas Físicas e Jurídicas que pagaram o ICMS sobre as operações de transmissão, distribuição e encargos podem entrar com a ação de restituição.
+			<br><br>
+			O requerente ou proponente da ação de restituição, você, é tratado no site e nos documentos gerados Sujeito Ativo.
+			<br><br>
+			Sujeito ativo: as pessoas físicas e as microempresas e empresas de pequeno porte, assim definidas na Lei Complementar no 123, de 14 de dezembro de 2006, tanto no Juizado Especial da Vara da Fazenda Pública, quanto nas Varas Comuns.
+			<br><br>
+			Também poderão ingressar com a ação pessoas jurídicas de médio e grande porte, apenas não no Juizado Especial da Vara da Fazenda Pública, apenas nas Varas da Fazenda ou Varas Comuns.<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 4 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 4" ng-click="questao = 4">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Contra quem a ação é movida? Quem está sendo processado?
+		</span>
+		<span class='ativar'    ng-show="questao == 4" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Contra quem a ação é movida? Quem está sendo processado?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 4">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Contra quem a ação é movida? Quem está sendo processado?
+		</span>
+		<span ng-show="questao == 4" class="resposta"><br><br>
+			O réu na ação, é também denominado ou referido como Sujeito Passivo.
+			<br><br>
+			Há controvérsias sobre quem é o sujeito passivo, uma vez que o imposto é cobrado pelas Distribuidoras de Energia. Mas como são os Estados os beneficiários do ICMS, bem como os responsáveis pela forma como ele é calculado e cobrado nas faturas, será ele a parte passiva da ação.<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 5 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 5" ng-click="questao = 5">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quanto eu vou receber ao ser bem sucedida a ação? Qual o valor da ação?
+		</span>
+		<span class='ativar'    ng-show="questao == 5" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quanto eu vou receber ao ser bem sucedida a ação? Qual o valor da ação?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 5">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quanto eu vou receber ao ser bem sucedida a ação? Qual o valor da ação?
+		</span>
+		<span ng-show="questao == 5" class="resposta"><br><br>
+			O valor máximo a ser recebido é o cálculo do imposto pago nos últimos 5 (cinco) anos.<br><br>
+			O sistema lhe ajudará a solicitar - ou requerer - os valores pagos junto a companhia fornecedora de energia através de requerimento administrativo ou de ação de antecipação de provas. Estes valores e as respectivas alíquotas de ICMS devem ser informadas no sistema, que fará a correção e o cálculo do valor a ser restituído, ou seja, o valor da causa!
+			<br><br>
+			Caso você não receba a resposta da companhia fornecedora de energia mas tenha as faturas consigo, estas poderão ser usadas. Neste caso você deve identificar as informações necessárias e lançar no sistema.
+			<br><br>
+			Caso você opte por ajuizar a ação sem todas as faturas, o que também é possível, um valor de alçada deverá ser informado.
+			<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 6 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 6" ng-click="questao = 6">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Terei que ir para Audiência de Conciliação?
+		</span>
+		<span class='ativar'    ng-show="questao == 6" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Terei que ir para Audiência de Conciliação?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 6">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Terei que ir para Audiência de Conciliação?
+		</span>
+		<span ng-show="questao == 6" class="resposta"><br><br>
+			Geralmente não. A audiência de conciliação é dispensável, uma vez que os Estados não costumam transigir em casos similares. 
+			<br><br>
+			Além disso, a documentação peticiona a anulação da audiência pelas bases legais existentes.
+			<br><br>
+			Ã‰ necessário ficar atento Ã s possíveis intimações judiciais para comparecimento, visto que, com a documentação que fornecemos, acreditamos que você fará tudo sem a ajuda de um advogado.
+			<br><br>
+			Todas as operações judiciais têm prazo fixado, portanto, se você for intimado para executar algo, haja o mais rápido possível.
+			<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 7 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 7" ng-click="questao = 7">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quais documentos serão necessários para entrar com a ação?
+		</span>
+		<span class='ativar'    ng-show="questao == 7" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quais documentos serão necessários para entrar com a ação?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 7">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Quais documentos serão necessários para entrar com a ação?
+		</span>
+		<span ng-show="questao == 7" class="resposta"><br><br>
+			O sistema lhe informará todos os documentos necessários em cada fase do processo.
+			<br><br>
+			Ao informar os dados solicitados, entre sempre na guia Documentos e imprima o documento que estiver liberado.
+			<br><br>
+			Leia atentamente cada página. Lembre-se, eles são o seu guia para o sucesso da ação de restituição.<br><br>
+		</span>
+		</div>
+
+		<!-- pergunta 8 -->
+		<div ng-model="questao" ng-init="questao = 0"  class="pergunta">
+		<span class='info'    ng-show="questao != 0 && questao != 8" ng-click="questao = 8">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Em que cidade devo entrar com a ação?
+		</span>
+		<span class='ativar'    ng-show="questao == 8" ng-click="questao = 0">
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>&nbsp;&nbsp;
+			Em que cidade devo entrar com a ação?
+		</span>
+		<span class='desativar' ng-show="questao == 0" ng-click="questao = 8">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+			Em que cidade devo entrar com a ação?
+		</span>
+		<span ng-show="questao == 8" class="resposta"><br><br>
+			Os termos do artigo 52, parágrafo único do CPC/15, garantem que a ação poderá ser proposta no foro do domicílio do autor ou na capital do respectivo ente federado. Isto quer dizer que você poderá entrar com a ação na cidade em que mora, estando ela dentro do estado, sujeito passivo no processo.<br><br>
+		</span>
+		</div>
+		<br>
+<style type="text/css">
+	.pergunta{
+		background-color: #ccc;
+		border-radius: 10px;
+		margin-bottom: 20px;
+		padding-left: 10px;
+		padding-top: 12px;
+		padding-right: 10px;
+		padding-bottom: 12px;
+	}
+/*
+	.resposta{
+		color: red;
+	}*/
+	.ativar{
+		color: blue;
+	}/*
+	.desativar{
+		background-color: #faa;
+	}
+	.info{
+		background-color: #aaf;
+	}*/
+
+	*:focus {
+    outline:none
+}
+ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.menu-sanfona {
+    border-bottom:none;
+}
+.menu-sanfona span {
+    padding:0px;
+    display:block;
+}
+.menu-sanfona > li {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight:bold;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px #888888;
+    background-color:#FFFFC1;
+}
+.menu-sanfona li ul {  
+    display:none;
+    text-align: left;
+    border-top:1px solid #ccc;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    padding-top: 25px;
+    padding-left: 45px;
+    font-weight:normal;
+}
+
+/* a mÃ¡gica acontece aqui */
+.menu-sanfona li:focus ul {
+    display:block;
+}
+</style>
+<script type="text/javascript" src="app/js/ajax/ajax_tira_duvida.js"></script>

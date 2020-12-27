@@ -1,0 +1,147 @@
+
+	    <div class="well conteudo"  id="formSaida">
+		<!-- <form id="formSaida" method="post" class="form">       -->
+			<fieldset>
+				<div class="text-left title">
+					<h2>
+						Saída de Diesel (Fitinha)
+					</h2>
+					<br>
+					<ul class="nav nav-tabs nav-justified">
+						<li role="presentation" class="estiloAba">
+							<a href="#!saida"><h4>Abastecimento</h4></a>
+						</li>
+						<li role="presentation" class="estiloAba">
+							<a href="#!cupom"><h4>Cupom</h4></a>
+						</li>
+						<li role="presentation" class="active estiloAba">
+							<a href="#!fitinha"><h4>Fitinha</h4></a>
+						</li>
+						<li role="presentation" class="estiloAba">
+							<a href="#!acerto"><h4>Acerto</h4></a>
+						</li>
+					</ul>
+					<br><br>
+					<div class="row">
+						<div class="col-md-12">
+						
+						<!-- Formulario de Cadastro de fitinha -->
+<form id="formFitinha" method="post">
+    <div class="row">
+		<div class="col-md-4">
+			<div id="selectBomba"></div>
+		</div>
+		<div class="col-md-2">
+			<label class="label-float">Volume Atual:</label>&nbsp;&nbsp;
+			<input type="text" id="volume_atual" class="form-control" disabled>
+		</div>
+		<div class="col-md-2">
+			<label class="label-float">Volume Total:</label>&nbsp;&nbsp;
+			<input type="text" id="volume_total" class="form-control" disabled>
+		</div>
+	</div>
+	<br><br>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+
+<div class="row">
+	<div class="col-md-4">
+		<label class="label-float">Data de Entrada:</label>
+		<input type="date" onchange="valorUnitario(this)" onkeyup="valorUnitario(this)" id="data_abastecimento" class="form-control" required>
+	</div>
+	<div class="col-md-2">
+		<label class="label-float">Hora:</label>
+		<input type="text" rel="hora" id="horas" class="form-control" required>
+	</div>
+	<div class="col-md-3">
+		<label class="label-float">Tem placa?:</label>
+		<input class="form-control" type="checkbox" id="bool_placa_fit" ng-model="bool_placa_fit">
+	</div>
+	<div class="col-md-3">
+		<div ng-if="bool_placa_fit">
+			<label class="label-float">Caminhão:</label>
+			<input style="text-transform: uppercase;" class="form-control" list="caminhao" id="caminhao_id">				
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-4">
+		<label class="label-float">Qtd. em Litros:</label>
+		<input type="text" id="litros" onkeypress="ultimoValor();" onkeyup="calcTotal();verificarEntrada()" rel=decimalGeral class="form-control" required>
+	</div>
+	<div class="col-md-3">
+		<label class="label-float">Valor Únitario:</label>
+		<input type="text" id="vlr_unit" onkeyup="calcTotal()" rel=dinheiro class="form-control" required>
+	</div>
+	<div class="col-md-4">
+		<label class="label-float">Total:</label>
+		<input type="text" id="total" rel=dinheiro class="form-control" disabled>
+	</div>
+	<div class="col-md-1">
+		<div class="form-item">
+			<label class="label-float">Salvar:</label>
+			<button type="submit" class="btn btn-success btn-block">
+				<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				<!-- &nbsp;Adicionar -->
+			</button>
+		</div>
+	</div>
+</div>
+<!--  onclick="cadastrarAbastecimento()" -->
+		</div>
+	</div>
+</form>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<br><br>
+					<div class="row">
+						<div class="col-md-12">
+							<div id="conteudoSaida">
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>      
+		<!-- </form> -->
+		</div>
+<script type="text/javascript">
+	var saida = true;
+</script>
+
+<style type="text/css">
+	.estiloAba{
+		color: black;
+
+	}
+</style>
+<!-- 
+  <script type="text/javascript">
+  	var saida = false;
+	verificaVisibilidade();
+
+	function verificaVisibilidade(){
+		var valor = $("#selectTipoSaida").val();
+		if (valor == "caminhao") {
+			document.getElementById("tipoTerceiro").style.display = "none";
+			document.getElementById("tipoTerceiro").disabled = true;
+			document.getElementById("tipoCaminhao").style.display = "block";
+			document.getElementById("tipoCaminhao").disabled = false;
+			document.getElementById("odometro").disabled = false;
+		} else {
+			document.getElementById("tipoCaminhao").style.display = "none";
+			document.getElementById("tipoCaminhao").disabled = true;
+			document.getElementById("tipoTerceiro").style.display = "block";
+			document.getElementById("tipoTerceiro").disabled = false;
+			document.getElementById("odometro").disabled = true;
+			document.getElementById("odometro").value = "";
+		}
+	}
+  </script> -->
+
+<script type="text/javascript" src="app/js/ajax/ajax_fitinha.js"></script>
+
+<!-- funcoesFitinhaController.php -->

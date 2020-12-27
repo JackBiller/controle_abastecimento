@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Controle de Abastecimento</title>
+	<link rel='shortcut icon' href="app/img/icon.gif" />
+
+	<script type="text/javascript" src="app/js/jQuery.js"></script>
+	<script type="text/javascript" src="app/lb/mdb/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="app/lb/mdb/js/jquery-3.1.1.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="app/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="app/css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="app/css/font-awesome/css/font-awesome.min.css">      
+
+	<script type="text/javascript" src="app/js/scripts.js"></script>
+	<script type="text/javascript" src="app/js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="app/js/bootbox.js"></script>
+	<script type="text/javascript" src="app/js/masked2.js"></script>
+	<script type="text/javascript" src="app/js/masked.js"></script>
+	<script type="text/javascript" src="app/js/toast.js"></script>
+	<script type="text/javascript" src="app/js/maskmoney.js"></script>
+	<script type="text/javascript" src="app/js/moment.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="app/css/toast.css">
+</head>
+<body ng-app="myApp">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container-fluid " style="margin-left: 0px;">
+				<div class="jumbotron">
+					<div class="row">
+						<div class="col-md-8" style="margin-top: 3px;">
+							<input type="checkbox" id="clique_me" ng-model="id_usuario" class="hidden" ng-init="id_usuario = false">
+							<input type="checkbox" id="clique_me_2" ng-model="nivel_a" class="hidden" ng-init="nivel_a = false">
+							<h1 style="font-size: 45px;"><a href="#!home" style="color: white;">Controle de Abastecimento</a></h1>
+						</div>
+						<div class="col-md-4" style="margin-top: 10px; margin-bottom: 10px;">
+							<div class="row">
+								<div id="usuarioLogado" style="padding-right: 0px;padding-left: 0px; border-radius: 10px; background-color: #428bca;" class="col-md-12 text-left">
+									<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modalLogin">Login</button>
+									<input type="hidden" value="0" id="id_usuario">
+								</div>
+							</div>
+							<input type="hidden" name="editar" value="0" id="editar">
+							<input type="hidden" value="0" id="mes">
+							<input type="hidden" value="0" id="ano">
+						</div>
+					</div>
+					<!-- <br> -->
+					<div class="row">
+
+						<!-- <div class="container-fluid"> -->
+						<div class="col-md-10 col-md-offset-2">
+							<!-- <div class="row"> -->
+							<div class="collapse navbar-collapse sidenav hidden-xs menu navbar-fixed-top"  ng-if='id_usuario'>
+								<ul class="nav navbar-nav text-center">
+									<li>
+										<a href="#!home">                Principal              </a>
+									</li>
+									<li ng-if="id_usuario"> 
+										<a href="#!perfil">              Perfil                 </a>
+									</li>
+									<li ng-if="nivel_a" class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li ng-if="id_usuario" class="text-left">
+												<a href="#!cadastro">            Cadastro de Úsuario    </a>
+											</li>
+											<li role="separator" class="divider"></li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!caminhoes">           Caminhões              </a>
+											</li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!terceiros">           Terceiros              </a>
+											</li>
+											<li role="separator" class="divider"></li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!empresas">            Empresas               </a>
+											</li>
+											<li role="separator" class="divider"></li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!proprietario">        Proprietário           </a>
+											</li>
+											<li role="separator" class="divider"></li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!bomba">               Bomba de Abastecimento </a>
+											</li>
+
+										</ul>
+									</li>
+									<li ng-if="id_usuario" class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movimentação <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!entrada">             Entrada de Diesel      </a>
+											</li>
+											<li ng-if="id_usuario" class="text-left"> 
+												<a href="#!saida">               Saída de Diesel        </a>
+											</li>
+										</ul>
+									</li>
+									<li ng-if="id_usuario"> 
+										<a href="#!relatorio">           Relatório              </a>
+									</li>
+									<li ng-if="id_usuario"> 
+										<a href="#!media">               Média                  </a>
+									</li>
+								</ul><br>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="jumbotron2">
+			<div ng-view class="col-md-12" >
+			<!-- 
+			   conteudo da pagina carregado dinamicamemte em uma unica paginas
+			-->
+		</div>
+	</div>
+	<div id="modalLogin" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row center">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="row">
+									<!-- Formulario de Login -->
+									<form id="formLogin" method="post">
+										<div class="col-md-12">
+											<label class="label-float" for="name">Email:</label>
+											<input id="usuario" type="text" class="form-control" size="12pt" required>
+										</div>
+										<br>
+										<div class="col-md-12">
+											<label class="label-float" for="name">Senha:</label>
+											<input id="password" type="password" class="form-control" size="12pt" required>
+										</div>
+										<br>
+										<div class="col-md-12">
+											<button type="submit" class="btn btn-primary btn-block">
+												Entrar
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="fecharModalLogin" class="btn btn-default" data-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script type="text/javascript" src="app/js/angular.js"></script>
+<script type="text/javascript" src="app/js/angularRouter.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/js/ajax/ajax_login.js"></script>
+</div>
+<div class="row">
+	<div class="col-md-12 rodape">
+		<!-- <div class="row">
+			<div class="col-md-12 text-center">
+				<h2>
+					<i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mais Informações !!!
+				</h2>
+			</div>
+		</div>
+		<br><br> -->
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1">
+				<h4>
+					<i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;
+					<b>Developer:</b>&nbsp;&nbsp;Jack Biller
+					<!-- <i class="fa fa-code" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; -->
+					<!-- <br><br><br><br> -->
+				</h4>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="listaCaminhao"></div>
+<div id="listaCaminhaoVin"></div>
+<div id="listaCaminhaoNVin"></div>
+<script type="text/javascript">
+	listaPLaca();
+	listaPLacaVin();
+	listaPLacaNVin();
+</script>
+
+<div class="hidden">
+</body>
+</div>
+</html>

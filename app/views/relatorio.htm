@@ -1,0 +1,432 @@
+<!-- Documentos -->
+<div class="well conteudo"  id="formClienteUnidCons">
+	<form id="formClienteUnidCons" method="post" class="form">
+		<div class="well conteudo">
+			<div class="row">
+				<div class="text-center">
+					<h2 class="text-center">Relatório</h2>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-4">
+						<div id="selectBomba"></div>
+					</div>
+					<div class="col-md-2">
+						<label class="label-float">Volume Atual:</label>&nbsp;&nbsp;
+						<input type="text" id="volume_atual" class="form-control" disabled>
+					</div>
+					<div class="col-md-2">
+						<label class="label-float">Volume Total:</label>&nbsp;&nbsp;
+						<input type="text" id="volume_total" class="form-control" disabled>
+					</div>
+				</div>
+				<br><br><br>
+				<div class="row text-center">
+					<div class="col-md-4">
+						<div class="panel panel-primary text-center">
+							<div class="panel-heading cabecario">
+								<h4>Relatório de Entrada</h4>
+							</div>
+							<div class="panel-footer corpo" style="max-height: 10em;min-height: 10em;">
+								<h4>
+									Informações sobre a entrada de diesel na bomba aderindo valor únitario, quantidade em litros, empresa
+									<br>
+								</h4>
+							</div>
+							<div class="panel-footer footer">
+								<button class="btn btn-primary" data-toggle="modal" data-target="#modalEntrada">
+									Gerar relatório
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-primary text-center">
+							<div class="panel-heading cabecario">
+								<h4>Relatório de Saída</h4>
+							</div>
+							<div class="panel-footer corpo" style="max-height: 10em;min-height: 10em;">
+								<h4>
+									Informações sobre a saida do diesel na bomba aderindo valor únitario, quantidade em litros, placas de caminhões ou terceiros para qual foi feito o abastecimento
+								</h4>
+							</div>
+							<div class="panel-footer footer">
+								<button class="btn btn-primary" data-toggle="modal" data-target="#modalSaida">
+									Gerar relatório
+								</button>
+							</div>
+						</div> 
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-primary text-center" data-toggle="modal" data-target="#modalMedia">
+							<div class="panel-heading cabecario">
+								<h4>Relatório média dos caminhões</h4>
+							</div>
+							<div class="panel-footer corpo" style="max-height: 10em;min-height: 10em;">
+								<h4>
+									Informações sobre a média por litros dos caminhões vinculados a média
+								</h4>
+							</div>
+							<div class="panel-footer footer">
+								<button class="btn btn-primary">Gerar relatório</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<div id="modalEntrada" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Relatório de Entrada</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Inicial</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_inicial_entrada" onkeyup="gerarLinkEntrada();" onclick="gerarLinkEntrada();" onchange="gerarLinkEntrada();" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Final</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_final_entrada" onchange="gerarLinkEntrada();" onclick="gerarLinkEntrada();" onkeyup="gerarLinkEntrada();" required>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<center>
+							<table class="table">
+								<tr>
+									<td align="center">
+										Retrato&nbsp;
+										<img src="app/img/retrato.png">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										Paisagem&nbsp;
+										<img src="app/img/paisagem.png">
+									</td>
+								</tr>
+								<tr>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina" onclick="definirOrientacao(0)">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina"  id="entradaPaisagem" onclick="definirOrientacao(1)">
+									</td>
+								</tr>
+							</table>
+						</center>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3" id="gerarEntradaPDF">
+						<button class="btn btn-primary btn-block" onclick="gerarLinkEntrada()">
+							Verica dados
+						</button>
+						<!-- <a href="#!relatorio" class="btn btn-danger btn-block" onclick='dataNula();'>
+							Gerar em PDF
+						</a> -->
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="fecharModalLogin" class="btn btn-default" data-dismiss="modal">
+						Close
+					</button>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+	</div>
+</div>
+
+
+
+<div id="modalSaida" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Relatório de Saida</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Inicial</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_inicial_saida" onkeyup="gerarLinkSaida();" onclick="gerarLinkSaida();" onchange="gerarLinkSaida();" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Final</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_final_saida" onchange="gerarLinkSaida();" onclick="gerarLinkSaida();" onkeyup="gerarLinkSaida();" required>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Incluir Filtro?</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="checkbox" ng-model="filtro" id="vinculaFiltro" onclick="vincularFiltro();">
+					</div>
+				</div>
+				<br>
+				<div class="row" ng-show="filtro">
+					<div class="col-md-3 col-md-offset-2">
+						<label class="label-float">Tipo de Saída:</label>
+						<select class="form-control" id="selectTipoSaida" onchange="verificaVisibilidade()">
+							<option value="caminhao">Caminhão</option>
+							<option value="terceiros">Terceiros</option>
+						</select>
+					</div>
+					<div class="col-md-5" id="tipoCaminhao">
+						<label class="label-float">Caminhão:</label>
+						<input style="text-transform: uppercase;" class="form-control" list="caminhao" id="caminhao_id" onclick="definriId();" onblur="definriId();" onselect="definriId();">
+					</div>
+					<div class="col-md-5"  id="tipoTerceiro">
+						<div id="selectTerceiros"></div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<center>
+							<table class="table">
+								<tr>
+									<td align="center">
+										Retrato&nbsp;
+										<img src="app/img/retrato.png">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										Paisagem&nbsp;
+										<img src="app/img/paisagem.png">
+									</td>
+								</tr>
+								<tr>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina" onclick="definirOrientacao(0)">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina"  id="saidaPaisagem" onclick="definirOrientacao(1)">
+									</td>
+								</tr>
+							</table>
+						</center>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3" id="gerarSaidaPDF">
+						<button class="btn btn-primary btn-block" onclick="gerarLinkSaida()">
+							Verica dados
+						</button>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3">
+						<button class="btn btn-primary btn-block" onclick="gerarLinkSaida()">
+							Forçar verificação
+						</button>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3" id="gerarSaidaPDFall">
+						<a href="app/documento/saidaPDF.php?bomba_id=4&orientacao=0&dt_inicial=&dt_final=&tipoFiltro=&idFiltro=" class="btn btn-danger btn-block"  target="_blanck">
+							Gerar em PDF (Todos os dados)
+						</a>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" id="fecharModalLogin" class="btn btn-default" data-dismiss="modal">
+						Close
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
+</div>
+
+
+
+
+<!-- relatirio para media dos caminhões pro litro -->
+
+<div id="modalMedia" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Relatório de Média</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Inicial</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_inicial_media" onkeyup="gerarLinkMedia();" onclick="gerarLinkMedia();" onchange="gerarLinkMedia();" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Data Final</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input class="form-control" type="date" id="dt_final_media" onchange="gerarLinkMedia();" onclick="gerarLinkMedia();" onkeyup="gerarLinkMedia();" required>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<h3>Caminhão</h3>
+					</div>
+					<div class="col-md-4" style="padding-top: 3%;">
+						<input style="text-transform: uppercase;" class="form-control" list="caminhao_vin" id="caminhao_id_vin" onclick="gerarLinkMedia();" onblur="gerarLinkMedia();" onselect="gerarLinkMedia();">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<center>
+							<table class="table">
+								<tr>
+									<td align="center">
+										Retrato&nbsp;
+										<img src="app/img/retrato.png">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										Paisagem&nbsp;
+										<img src="app/img/paisagem.png">
+									</td>
+								</tr>
+								<tr>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina" onclick="definirOrientacao(0)">
+									</td>
+									<td>&nbsp;&nbsp;</td>
+									<td align="center">
+										<input class="form-control" type="radio" name="orientacaoPagina"  id="saidaPaisagem" onclick="definirOrientacao(1)">
+									</td>
+								</tr>
+							</table>
+						</center>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3" id="gerarMediaPDF">
+						<button class="btn btn-primary btn-block" onclick="gerarLinkMedia()">
+							Verica dados
+						</button>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3">
+						<button class="btn btn-primary btn-block" onclick="gerarLinkMedia()">
+							Forçar verificação
+						</button>
+					</div>
+					<br><br>
+					<div class="col-md-6 col-md-offset-3" id="gerarSaidaPDFall">
+					<a href="app/documento/mediaPDF.php?bomba_id=4&orientacao=0&dt_inicial=&dt_final=&idFiltro=" class="btn btn-danger btn-block"  target="_blanck">
+							Gerar em PDF (Todos os dados)
+						</a>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="fecharModalLogin" class="btn btn-default" data-dismiss="modal">
+						Close
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
+</div>
+
+<script type="text/javascript">
+	var saida = false;
+	verificaVisibilidade();
+
+	function verificaVisibilidade(){
+		var valor = $("#selectTipoSaida").val();
+		if (valor == "caminhao") {
+			document.getElementById("tipoTerceiro").style.display = "none";
+			document.getElementById("tipoTerceiro").disabled = true;
+			document.getElementById("tipoCaminhao").style.display = "block";
+			document.getElementById("tipoCaminhao").disabled = false;
+			tipoFiltro = "c";
+		} else {
+			document.getElementById("tipoCaminhao").style.display = "none";
+			document.getElementById("tipoCaminhao").disabled = true;
+			document.getElementById("tipoTerceiro").style.display = "block";
+			document.getElementById("tipoTerceiro").disabled = false;
+			tipoFiltro = "t";
+		}
+
+		definriId();
+		gerarLinkSaida();
+	}
+</script>
+
+<script type="text/javascript" src='app/js/ajax/documento.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

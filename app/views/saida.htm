@@ -1,0 +1,85 @@
+
+<div class="well conteudo"  id="formSaida">
+	<form id="formSaida" method="post" class="form">      
+		<fieldset>
+			<div class="text-left title">
+				<h2>
+					Saída de Diesel
+				</h2>
+				<br>
+				<ul class="nav nav-tabs nav-justified">
+					<li role="presentation" class="active estiloAba">
+						<a href="#!saida"><h4>Abastecimento</h4></a>
+					</li>
+					<li role="presentation" class="estiloAba">
+						<a href="#!cupom"><h4>Cupom</h4></a>
+					</li>
+					<li role="presentation" class="estiloAba">
+						<a href="#!fitinha"><h4>Fitinha</h4></a>
+					</li>
+					<li role="presentation" class="estiloAba">
+						<a href="#!acerto"><h4>Acerto</h4></a>
+					</li>
+				</ul>
+			</div>
+			<div class="form-group row">
+				<br><br>
+				<div class="row">
+					<div class="col-md-4">
+						<div id="selectBomba"></div>
+					</div>
+					<div class="col-md-2">
+						<label class="label-float">Volume Atual:</label>&nbsp;&nbsp;
+						<input type="text" id="volume_atual" class="form-control" disabled>
+					</div>
+					<div class="col-md-2">
+						<label class="label-float">Volume Total:</label>&nbsp;&nbsp;
+						<input type="text" id="volume_total" class="form-control" disabled>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<label class="label-float">Mês:</label>
+						<select class="form-control" onchange="definiMes()" id="selectMes">
+							<option value="1">Jan</option>
+							<option value="2">Fev</option>
+							<option value="3">Mar</option>
+							<option value="4">Abr</option>
+							<option value="5">Mai</option>
+							<option value="6">Jun</option>
+							<option value="7">Jul</option>
+							<option value="8">Ago</option>
+							<option value="9">Set</option>
+							<option value="10">Out</option>
+							<option value="11">Nov</option>
+							<option value="12">Dez</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<div id="selectAnoDinamico"></div>
+					</div>
+				</div>
+				<br><br><br>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="conteudoSaida">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>      
+	</form>
+</div>
+<script type="text/javascript">
+	var saida = true;
+</script>
+
+<style type="text/css">
+	.estiloAba{
+		color: black;
+	}
+</style>
+<!-- <table align=""></table> -->
+
+<script type="text/javascript" src="app/js/ajax/ajax_saida.js"></script>
